@@ -50,3 +50,17 @@ sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 set LEGACY_BOOT_PROTOCOL_P2=0
 ##optional: delete bootrom off the card, so it doesn't slow down boot by popping up crap  
 ##this is safe to do and supported by mellanox  
 flint -d /dev/mst/mt4099_pci_cr0 --allow_rom_change drom
+
+# Installing iperf
+sudo apt install iperf
+
+# Testing with iperf
+# point tot point connection
+
+start iperf server on pc A:  
+sudo iperf –s –w 2m
+
+start iperf client on pc B:  
+sudo perf –c 10.0.0.1 –w 2m –t 30s –i 1s
+
+Results in 15Gbits/s, probably deu to single thread.
