@@ -26,26 +26,26 @@ Cold boot the server when done
 # Some useful config commands to config the card when it comes back up:
 
 #start mst service again  
-mst start
+sudo mst start
 
 #get detailed firmware info  
-mlxfwmanager --query
+sudo mlxfwmanager --query
 
 #get the device ID again:  
-mst status
+sudo mst status
 
 #use it to see the cards current configuration:  
-mlxconfig -d /dev/mst/mt4099_pci_cr0 query
+sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 query
 
 use it in config commands to configure the card  
 #for instance, to turn both ports from VPI/Auto to Ethernet only:  
-mlxconfig -d /dev/mst/mt4099_pci_cr0 set LINK_TYPE_P1=2 LINK_TYPE_P2=2
+sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 set LINK_TYPE_P1=2 LINK_TYPE_P2=2
 
 #turn off bootrom crap  
-mlxconfig -d /dev/mst/mt4099_pci_cr0 set BOOT_OPTION_ROM_EN_P1=false  
-mlxconfig -d /dev/mst/mt4099_pci_cr0 set BOOT_OPTION_ROM_EN_P2=false  
-mlxconfig -d /dev/mst/mt4099_pci_cr0 set LEGACY_BOOT_PROTOCOL_P1=0  
-mlxconfig -d /dev/mst/mt4099_pci_cr0 set LEGACY_BOOT_PROTOCOL_P2=0  
+sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 set BOOT_OPTION_ROM_EN_P1=false  
+sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 set BOOT_OPTION_ROM_EN_P2=false  
+sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 set LEGACY_BOOT_PROTOCOL_P1=0  
+sudo mlxconfig -d /dev/mst/mt4099_pci_cr0 set LEGACY_BOOT_PROTOCOL_P2=0  
 
 ##optional: delete bootrom off the card, so it doesn't slow down boot by popping up crap  
 ##this is safe to do and supported by mellanox  
