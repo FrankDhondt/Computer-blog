@@ -58,9 +58,30 @@ sudo apt install iperf
 # point tot point connection
 
 start iperf server on pc A:  
-sudo iperf –s –w 2m
+iperf –s –w 2m
 
 start iperf client on pc B:  
-sudo perf –c 10.0.0.1 –w 2m –t 30s –i 1s
+iperf –c 10.0.0.1 –w 2m –t 30s –i 1 -P 4
 
-Results in 15Gbits/s, probably deu to single thread.
+Results in 15Gbits/s, probably due to single thread.
+
+iperf -s -p 5101
+iperf -s -p 5102
+iperf -s -p 5103
+iperf -s -p 5104
+
+iperf –c 10.0.0.1 –w 2m –t 30s –i 1 -T s1 -p 5101
+iperf –c 10.0.0.1 –w 2m –t 30s –i 1 -T s2 -p 5102
+iperf –c 10.0.0.1 –w 2m –t 30s –i 1 -T s3 -p 5103
+iperf –c 10.0.0.1 –w 2m –t 30s –i 1 -T s4 -p 5104
+
+Results in 20Gbits/s
+
+sudo apt install cpufrequtils  
+sudo cpufreq-set -r -g performance  
+
+
+
+
+
+
