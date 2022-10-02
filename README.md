@@ -2,4 +2,4 @@
 
 [Opzetten easy2boot boot disc](easy2boot.md)
 
-[Mellanox ConnectX-3](mellanox-connectx-3.md)
+[Flash Mellanox ConnectX-3 network card](mellanox-connectx-3.md)
